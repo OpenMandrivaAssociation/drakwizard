@@ -1,6 +1,6 @@
 %define name drakwizard
 %define version 3.1
-%define release %mkrel 2
+%define release %mkrel 3
 
 Name: %{name}
 Version: %{version}
