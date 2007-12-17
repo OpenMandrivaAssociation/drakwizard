@@ -11,7 +11,6 @@ License: GPL
 Group: System/Configuration/Other
 Requires: perl-base, usermode, perl-Locale-gettext, drakxtools >= 9.1-0.4mdk, perl-Libconf >= 0.39.19, drakwizard-base = %{version}-%{release}
 BuildRequires: gettext-base, perl-base
-Buildroot: %{_tmppath}/%{name}
 BuildArch: noarch
 Prefix: %{_prefix}
 Obsoletes: wizards_lib-dhcp wizards_lib-ftp wizards_lib-web wizards_lib wizard wizards_lib-time wizards_lib-global wizards_lib-dns wizards_lib-server wizards_lib-proxy wizards_lib-db wizards_lib-news wizards_lib-firewall wizards_lib-client wizards_lib-common wizards_lib-postfix
