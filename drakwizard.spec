@@ -1,11 +1,11 @@
 %define name drakwizard
-%define version 3.1
-%define release %mkrel 5
+%define version 3.2
+%define release %mkrel 1
 
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
+Source0: %{name}-%{version}.tar.lzma
 Source1: %name.png
 License: GPL
 Group: System/Configuration/Other
@@ -17,7 +17,7 @@ Prefix: %{_prefix}
 Obsoletes: wizards_lib-dhcp wizards_lib-ftp wizards_lib-web wizards_lib wizard wizards_lib-time wizards_lib-global wizards_lib-dns wizards_lib-server wizards_lib-proxy wizards_lib-db wizards_lib-news wizards_lib-firewall wizards_lib-client wizards_lib-common wizards_lib-postfix
 Provides: wizards_lib-dhcp wizards_lib-ftp wizards_lib-web wizards_lib wizard wizards_lib-time wizards_lib-global wizards_lib-dns wizards_lib-server wizards_lib-proxy wizards_lib-db wizards_lib-news wizards_lib-firewall wizards_lib-client wizards_lib-common wizards_lib-postfix
 Summary: Wizard Launcher and its collection of wizards
-URL: http://qa.mandriva.com/twiki/bin/view/Main/DrakWizard
+URL: http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/drakwizard/trunk/
 
 %description
 drakwizard allows you to launch :
@@ -25,7 +25,6 @@ drakwizard allows you to launch :
 - global wizard: wizard that launch each other.
 - dhcpd, dns, ftp, nis, ldap, apache, news,
   time wizards, ssh.
-http://cvs.mandriva.com/cgi-bin/cvsweb.cgi/soft/wizard_perl
 
 %package base
 Summary: Base of Wizard Launcher
@@ -37,7 +36,7 @@ wizard
 - postfix, samba, web
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %build
 
