@@ -1,6 +1,6 @@
 %define name drakwizard
 %define version 3.2
-%define release %mkrel 2
+%define release %mkrel 3
 
 Name: %{name}
 Version: %{version}
@@ -55,40 +55,24 @@ rm -rf $RPM_BUILD_DIR/$RPM_PACKAGE_NAME
 %config(noreplace) %_sysconfdir/gnome-vfs-2.0/vfolders/*
 %_sbindir/drakwizard
 %{perl_vendorlib}/MDK/Wizard/Apache.pm
-%{perl_vendorlib}/MDK/Wizard/Postfix.pm
 %{perl_vendorlib}/MDK/Wizard/Varspaceval.pm
 %{perl_vendorlib}/MDK/Wizard/Wizcommon.pm
 %{perl_vendorlib}/MDK/Wizard/Wizcommon_gtk2.pm
 %{perl_vendorlib}/MDK/Wizard/IFCFG.pm
-%{perl_vendorlib}/MDK/Wizard/Samba.pm
-%{perl_vendorlib}/MDK/Wizard/Sambaprint.pm
-%{perl_vendorlib}/MDK/Wizard/Sambashare.pm
-%_datadir/wizards/postfix_wizard/*
-%_datadir/wizards/samba_wizard/*
 %_datadir/wizards/desktop/*
 
 %files -f %{name}.lang
 %defattr(-,root,root)
 %{perl_vendorlib}/MDK/Wizard/Bind.pm
 %{perl_vendorlib}/MDK/Wizard/Dhcp.pm
-%{perl_vendorlib}/MDK/Wizard/Inn.pm
-%{perl_vendorlib}/MDK/Wizard/Installsrv.pm
-%{perl_vendorlib}/MDK/Wizard/ldapdef.pm
-%{perl_vendorlib}/MDK/Wizard/Ldap.pm
-%{perl_vendorlib}/MDK/Wizard/NFS.pm
-%{perl_vendorlib}/MDK/Wizard/Nisautofs.pm
 %{perl_vendorlib}/MDK/Wizard/Ntp.pm
 %{perl_vendorlib}/MDK/Wizard/Proftpd.pm
 %{perl_vendorlib}/MDK/Wizard/Squid.pm
 %{perl_vendorlib}/MDK/Wizard/Sshd.pm
-%{perl_vendorlib}/MDK/Wizard/Kolab.pm
-%_datadir/wizards/nfs_wizard
 %_datadir/wizards/sshd_wizard
-%_datadir/wizards/ldap_wizard
 %_datadir/wizards/dhcp_wizard
 %_datadir/wizards/dns_wizard
 %_datadir/wizards/ftp_wizard
-%_datadir/wizards/news_wizard
 %_datadir/wizards/proxy_wizard
 
 
