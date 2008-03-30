@@ -1,6 +1,6 @@
 %define name drakwizard
 %define version 3.5
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: %{name}
 Version: %{version}
@@ -23,8 +23,7 @@ URL: http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/drakwizard/trunk/
 drakwizard allows you to launch :
 - server wizard: configures basic services.
 - global wizard: wizard that launch each other.
-- dhcpd, dns, ftp, nis, ldap, apache, news,
-  time wizards, ssh.
+- dhcpd, dns, ftp, apache, time wizards, ssh.
 
 %package base
 Summary: Base of Wizard Launcher
@@ -32,8 +31,7 @@ Group: System/Configuration/Other
 Conflicts: drakwizard < 3.0-1mdk
 
 %description base
-wizard
-- postfix, samba, web
+Base package for drakwizard.
 
 %prep
 %setup -q
