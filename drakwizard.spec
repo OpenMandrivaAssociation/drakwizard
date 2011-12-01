@@ -45,7 +45,7 @@ rm -rf %{buildroot}
 
 %clean
 rm -rf %{buildroot}
-rm -rf $RPM_BUILD_DIR/$RPM_PACKAGE_NAME
+rm -rf %{_builddir}/$RPM_PACKAGE_NAME
 
 %files base -f %{name}.lang
 %defattr(-,root,root)
