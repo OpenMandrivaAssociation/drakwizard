@@ -39,12 +39,12 @@ Base package for drakwizard.
 %build
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall
 %find_lang %{name}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 rm -rf $RPM_BUILD_DIR/$RPM_PACKAGE_NAME
 
 %files base -f %{name}.lang
