@@ -1,23 +1,53 @@
-%define name drakwizard
-%define version 3.7.4
-%define release 5
+Summary:	Wizard Launcher and its collection of wizards
+URL:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/drakwizard/trunk/
+Name:		drakwizard
+Version:	3.7.4
+Release:	6
+Source0:	%{name}-%{version}.tar.lzma
+Source1:	%name.png
+License:	GPL
+Group:		System/Configuration/Other
+Requires:	perl-base
+Requires:	usermode
+Requires:	perl-Locale-gettext
+Requires:	drakxtools >= 9.1-0.4mdk
+Requires:	perl-Libconf >= 0.39.19
+Requires:	drakwizard-base = %{version}-%{release}
+BuildRequires:	gettext-base
+BuildRequires:	perl-base
+BuildArch:		noarch
+Obsoletes:	wizards_lib-dhcp < %{version}-%{release}
+Obsoletes:	wizards_lib-ftp < %{version}-%{release}
+Obsoletes:	wizards_lib-web < %{version}-%{release}
+Obsoletes:	wizards_lib < %{version}-%{release}
+Obsoletes:	wizard < %{version}-%{release}
+Obsoletes:	wizards_lib-time < %{version}-%{release}
+Obsoletes:	wizards_lib-global < %{version}-%{release}
+Obsoletes:	wizards_lib-dns < %{version}-%{release}
+Obsoletes:	wizards_lib-server < %{version}-%{release}
+Obsoletes:	wizards_lib-proxy < %{version}-%{release}
+Obsoletes:	wizards_lib-db < %{version}-%{release}
+Obsoletes:	wizards_lib-news < %{version}-%{release}
+Obsoletes:	wizards_lib-firewall < %{version}-%{release}
+Obsoletes:	wizards_lib-client < %{version}-%{release}
+Obsoletes:	wizards_lib-common < %{version}-%{release}
+Obsoletes:	wizards_lib-postfix < %{version}-%{release}
+Provides:	wizards_lib-dhcp
+Provides:	wizards_lib-ftp
+Provides:	wizards_lib-web
+Provides:	wizards_lib wizard
+Provides:	wizards_lib-time
+Provides:	wizards_lib-global
+Provides:	wizards_lib-dns
+Provides:	wizards_lib-server
+Provides:	wizards_lib-proxy
+Provides:	wizards_lib-db
+Provides:	wizards_lib-news
+Provides:	wizards_lib-firewall
+Provides:	wizards_lib-client
+Provides:	wizards_lib-common
+Provides:	wizards_lib-postfix
 
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}.tar.lzma
-Source1: %name.png
-License: GPL
-Group: System/Configuration/Other
-Requires: perl-base, usermode, perl-Locale-gettext, drakxtools >= 9.1-0.4mdk, perl-Libconf >= 0.39.19, drakwizard-base = %{version}-%{release}
-BuildRequires: gettext-base, perl-base
-Buildroot: %{_tmppath}/%{name}
-BuildArch: noarch
-Prefix: %{_prefix}
-Obsoletes: wizards_lib-dhcp wizards_lib-ftp wizards_lib-web wizards_lib wizard wizards_lib-time wizards_lib-global wizards_lib-dns wizards_lib-server wizards_lib-proxy wizards_lib-db wizards_lib-news wizards_lib-firewall wizards_lib-client wizards_lib-common wizards_lib-postfix
-Provides: wizards_lib-dhcp wizards_lib-ftp wizards_lib-web wizards_lib wizard wizards_lib-time wizards_lib-global wizards_lib-dns wizards_lib-server wizards_lib-proxy wizards_lib-db wizards_lib-news wizards_lib-firewall wizards_lib-client wizards_lib-common wizards_lib-postfix
-Summary: Wizard Launcher and its collection of wizards
-URL: http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/drakwizard/trunk/
 
 %description
 drakwizard allows you to launch :
@@ -26,9 +56,9 @@ drakwizard allows you to launch :
 - dhcpd, dns, ftp, apache, time wizards, ssh.
 
 %package base
-Summary: Base of Wizard Launcher
-Group: System/Configuration/Other
-Conflicts: drakwizard < 3.0-1mdk
+Summary:	Base of Wizard Launcher
+Group:		System/Configuration/Other
+Conflicts:	drakwizard < 3.0-1mdk
 
 %description base
 Base package for drakwizard.
@@ -39,12 +69,10 @@ Base package for drakwizard.
 %build
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall
 %find_lang %{name}
 
 %files base -f %{name}.lang
-%defattr(-,root,root)
 %doc TODO README.adding_wizard
 %config(noreplace) %_sysconfdir/gnome-vfs-2.0/vfolders/*
 %_sbindir/drakwizard
@@ -56,7 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/wizards/desktop/*
 
 %files
-%defattr(-,root,root)
 %{perl_vendorlib}/MDK/Wizard/Bind.pm
 %{perl_vendorlib}/MDK/Wizard/Dhcp.pm
 %{perl_vendorlib}/MDK/Wizard/Ntp.pm
