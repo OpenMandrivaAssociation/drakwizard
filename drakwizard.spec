@@ -1,4 +1,5 @@
-Summary:	Wizard Launcher and its collection of wizardsName:		drakwizard
+Summary:	Wizard Launcher and its collection of wizards
+Name:		drakwizard
 Version:	3.7.4
 Release:	6
 License:	GPLv2
