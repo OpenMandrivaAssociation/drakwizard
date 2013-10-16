@@ -1,7 +1,7 @@
 Summary:	Wizard Launcher and its collection of wizards
 Name:		drakwizard
 Version:	3.7.4
-Release:	7
+Release:	8
 License:	GPLv2
 Group:		System/Configuration/Other
 Url:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/drakwizard/trunk/
