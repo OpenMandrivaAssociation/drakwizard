@@ -1,0 +1,154 @@
+--- drakwizard-3.7.4/web_wizard/scripts/commonhttpd.conf.orig	2013-10-25 14:23:24.534400154 +0100
++++ drakwizard-3.7.4/web_wizard/scripts/commonhttpd.conf	2013-10-25 14:29:54.658415942 +0100
+@@ -36,8 +36,7 @@
+ <Directory />
+   Options -All -Multiviews
+   AllowOverride None
+-  Order deny,allow
+-  Deny from all
++  Require all denied
+ </Directory>
+ 
+ 
+@@ -84,8 +83,7 @@
+ # files, so this will protect those as well.
+ #
+ <Files ~ "^\.ht">
+-    Order allow,deny
+-    Deny from all
++    Require all denied
+ </Files>
+ 
+ #
+@@ -538,10 +536,7 @@
+ <IfModule mod_status.c>
+     <Location /server-status>
+         SetHandler server-status
+-        Order deny,allow
+-        Deny from all
+-        allow from 127.0.0.1
+-        #Allow from .your_domain.com
++        Require host 127.0.0.1
+     </Location>
+ #
+ # ExtendedStatus controls whether Apache will generate "full" status
+@@ -559,9 +554,7 @@
+ <IfModule mod_info.c>
+     <Location /server-info>
+ 	SetHandler server-info
+-	Order deny,allow
+-	Deny from all
+-	Allow from .your_domain.com
++        Require host .your_domain.com
+     </Location>
+ </IfModule>
+ 
+@@ -569,9 +562,7 @@
+     <Location /perl-status>
+ 	SetHandler perl-script
+ 	PerlHandler Apache::Status
+-	Order deny,allow
+-	Deny from all
+-	Allow from 127.0.0.1
++        Require host 127.0.0.1
+     </Location>
+ </IfModule>
+ 
+@@ -595,9 +586,7 @@
+ #    ProxyRequests On
+ 
+ #    <Directory proxy:*>
+-#        Order deny,allow
+-#        Deny from all
+-#        Allow from .your_domain.com
++#        Require host .your_domain.com
+ #    </Directory>
+ 
+     #
+@@ -655,15 +644,13 @@
+ #
+ # Controls who can get stuff from this server.
+ #
+-    Order allow,deny
+-    Allow from all
++    Require all granted
+ </Directory>
+ 
+ <Directory /var/www/perl>
+     AllowOverride All
+     Options -Indexes FollowSymLinks MultiViews ExecCGI
+-    Order allow,deny
+-    Allow from all
++    Require all granted
+ </Directory>
+ 
+ <Directory /var/www/cgi-bin>
+@@ -674,8 +661,7 @@
+ <Directory /var/www/protected-cgi-bin>
+     AllowOverride None
+     Options ExecCGI
+-    Order deny,allow
+-    Deny from all
++    Require all denied
+     Allow from 127.0.0.1
+     #allow from .your_domain.com
+ </Directory>
+@@ -688,12 +674,10 @@
+ #    AllowOverride FileInfo AuthConfig Limit
+ #    Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+ #    <Limit GET POST OPTIONS PROPFIND>
+-#        Order allow,deny
+-#        Allow from all
++#        Require all granted
+ #    </Limit>
+ #    <LimitExcept GET POST OPTIONS PROPFIND>
+-#        Order deny,allow
+-#        Deny from all
++#        Required all denied
+ #    </LimitExcept>
+ #</Directory>
+ 
+@@ -701,8 +685,7 @@
+ <Directory /home/*/public_html>
+     AllowOverride All
+     Options MultiViews -Indexes Includes FollowSymLinks
+-    Order allow,deny
+-    Allow from all
++    Require all granted
+ </Directory>
+ 
+ <Directory /home/*/public_html/cgi-bin>
+@@ -723,14 +706,12 @@
+ <Directory /var/www/icons>
+     Options -Indexes MultiViews
+     AllowOverride None
+-    Order allow,deny
+-    Allow from all
++    Require all granted
+ </Directory>
+ 
+ <Directory /usr/share/doc>
+     Options Indexes FollowSymLinks
+-    Order deny,allow
+-    Deny from all
++    Require all denied
+     Allow from 127.0.0.1
+     #allow from .your_domain.com
+ </Directory>
+--- drakwizard-3.7.4/web_wizard/Apache.pm.orig	2013-10-25 14:34:25.597426906 +0100
++++ drakwizard-3.7.4/web_wizard/Apache.pm	2013-10-25 14:34:44.672427678 +0100
+@@ -219,12 +219,10 @@
+     AllowOverride FileInfo AuthConfig Limit
+     Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+     <Limit GET POST OPTIONS PROPFIND>
+-        Order allow,deny
+-        Allow from all
++        Require all granted
+     </Limit>
+     <LimitExcept GET POST OPTIONS PROPFIND>
+-        Order deny,allow
+-        Deny from all
++        Require all denied
+     </LimitExcept>
+ </Directory>
+ EOF
