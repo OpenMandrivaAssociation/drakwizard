@@ -4,7 +4,7 @@ Version:	3.7.4
 Release:	20
 License:	GPLv2
 Group:		System/Configuration/Other
-Url:		http://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/drakwizard/trunk/
+Url:		https://svn.mandriva.com/cgi-bin/viewvc.cgi/soft/drakwizard/trunk/
 Source0:	%{name}-%{version}.tar.lzma
 Source1:	%{name}.png
 Patch1:		drakwizard-3.7.4-apache2.4.patch
